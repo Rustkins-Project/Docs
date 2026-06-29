@@ -1,0 +1,81 @@
+erDiagram
+	direction LR
+	PROJECT ||--o{ PIPELINE : owns
+	PIPELINE ||--o{ PIPELINE_VERSION : has
+	PROJECT ||--o{ PIPELINE_RUN : has
+	PIPELINE ||--o{ PIPELINE_RUN : executes
+	PIPELINE_VERSION ||--o{ PIPELINE_RUN : used_by
+
+	PIPELINE_RUN ||--o{ JOB_RUN : contains
+	JOB_RUN ||--o{ STEP_RUN : contains
+
+	PROJECT {
+		uuid id
+		string name
+		string git_repository_url
+		string default_branch
+		datetime created_at
+		datetime updated_at
+	}
+
+	PIPELINE {
+		uuid id
+		uuid project_id
+		string name
+		string yaml_path
+		datetime created_at
+		datetime updated_at
+	}
+
+	PIPELINE_VERSION {
+		uuid id
+		uuid pipeline_id
+		string git_sha
+		text yaml_content
+		string yaml_hash
+		json parsed_definition_json
+		string validation_status
+		json validation_errors_json
+		datetime created_at
+	}
+
+	PIPELINE_RUN {
+		uuid id
+		uuid project_id
+		uuid pipeline_id
+		uuid pipeline_version_id
+		string git_sha
+		string branch
+		string status
+		string trigger_type
+		datetime started_at
+		datetime finished_at
+		datetime logs_expires_at
+		datetime created_at
+	}
+
+	JOB_RUN {
+		uuid id
+		uuid pipeline_run_id
+		string job_key
+		string name
+		string image
+		string status
+		json needs_json
+		int exit_code
+		string log_object_key
+		boolean log_expired
+		datetime started_at
+		datetime finished_at
+	}
+
+	STEP_RUN {
+		uuid id
+		uuid job_run_id
+		int step_index
+		string command
+		string status
+		int exit_code
+		datetime started_at
+		datetime finished_at
+	}

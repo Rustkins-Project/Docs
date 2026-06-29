@@ -1,0 +1,258 @@
+erDiagram
+	direction LR
+	USER {
+		uuid id PK ""  
+		string email  ""  
+		string username  ""  
+		string password_hash  ""  
+		string role_global  ""  
+		bool is_active  ""  
+		datetime created_at  ""  
+		datetime updated_at  ""  
+		datetime last_login_at  ""  
+	}
+
+	PROJECT {
+		uuid id PK ""  
+		string name  ""  
+		string slug  ""  
+		string repository_url  ""  
+		string default_branch  ""  
+		bool is_active  ""  
+		datetime created_at  ""  
+		datetime updated_at  ""  
+	}
+
+	PROJECT_MEMBER {
+		uuid id PK ""  
+		uuid project_id FK ""  
+		uuid user_id FK ""  
+		string role  ""  
+		datetime created_at  ""  
+	}
+
+	API_TOKEN {
+		uuid id PK ""  
+		uuid project_id FK ""  
+		string name  ""  
+		string token_hash  ""  
+		string scope  ""  
+		bool revoked  ""  
+		datetime created_at  ""  
+		datetime expires_at  ""  
+		datetime last_used_at  ""  
+	}
+
+	WEBHOOK_CONFIG {
+		uuid id PK ""  
+		uuid project_id FK ""  
+		string provider  ""  
+		string secret_hash  ""  
+		bool enabled  ""  
+		datetime created_at  ""  
+		datetime updated_at  ""  
+	}
+
+	WEBHOOK_DELIVERY {
+		uuid id PK ""  
+		uuid project_id FK ""  
+		uuid webhook_config_id FK ""  
+		string external_delivery_id  ""  
+		string event_type  ""  
+		string commit_sha  ""  
+		string branch  ""  
+		string status  ""  
+		string error_message  ""  
+		datetime received_at  ""  
+		datetime processed_at  ""  
+	}
+
+	PIPELINE {
+		uuid id PK ""  
+		uuid project_id FK ""  
+		string name  ""  
+		string yaml_path  ""  
+		bool is_active  ""  
+		datetime created_at  ""  
+		datetime updated_at  ""  
+	}
+
+	PIPELINE_JOB {
+		uuid id PK ""  
+		uuid pipeline_id FK ""  
+		string name  ""  
+		string image  ""  
+		string run_if  ""  
+		string branch_condition  ""  
+		int cpu_limit_milli  ""  
+		int memory_limit_mb  ""  
+		int timeout_seconds  ""  
+		int order_index  ""  
+	}
+
+	PIPELINE_JOB_DEPENDENCY {
+		uuid id PK ""  
+		uuid job_id FK ""  
+		uuid depends_on_job_id FK ""  
+	}
+
+	PIPELINE_STEP {
+		uuid id PK ""  
+		uuid job_id FK ""  
+		string name  ""  
+		string command  ""  
+		int order_index  ""  
+		bool continue_on_error  ""  
+	}
+
+	RUN {
+		uuid id PK ""  
+		uuid project_id FK ""  
+		uuid pipeline_id FK ""  
+		uuid triggered_by_user_id FK ""  
+		uuid webhook_delivery_id FK ""  
+		uuid cancelled_by_user_id FK ""  
+		string trigger_type  ""  
+		string status  ""  
+		string branch  ""  
+		string commit_sha  ""  
+		string commit_message  ""  
+		string author_name  ""  
+		string author_email  ""  
+		datetime created_at  ""  
+		datetime started_at  ""  
+		datetime finished_at  ""  
+		datetime cancelled_at  ""  
+		string cancel_reason  ""  
+	}
+
+	JOB_RUN {
+		uuid id PK ""  
+		uuid run_id FK ""  
+		uuid pipeline_job_id FK ""  
+		uuid worker_node_id FK ""  
+		string status  ""  
+		string idempotency_key  ""  
+		int attempt_count  ""  
+		int max_attempts  ""  
+		int cpu_limit_milli  ""  
+		int memory_limit_mb  ""  
+		datetime queued_at  ""  
+		datetime started_at  ""  
+		datetime finished_at  ""  
+		datetime cancelled_at  ""  
+		string cancel_reason  ""  
+		int exit_code  ""  
+	}
+
+	JOB_RUN_ATTEMPT {
+		uuid id PK ""  
+		uuid job_run_id FK ""  
+		uuid worker_node_id FK ""  
+		int attempt_number  ""  
+		string status  ""  
+		string error_message  ""  
+		datetime started_at  ""  
+		datetime finished_at  ""  
+	}
+
+	STEP_RUN {
+		uuid id PK ""  
+		uuid job_run_id FK ""  
+		uuid pipeline_step_id FK ""  
+		string status  ""  
+		int exit_code  ""  
+		datetime started_at  ""  
+		datetime finished_at  ""  
+	}
+
+	WORKER_NODE {
+		uuid id PK ""  
+		string name  ""  
+		string hostname  ""  
+		string status  ""  
+		int total_cpu_milli  ""  
+		int total_memory_mb  ""  
+		int reserved_cpu_milli  ""  
+		int reserved_memory_mb  ""  
+		datetime last_heartbeat_at  ""  
+		datetime created_at  ""  
+	}
+
+	JOB_LOG_STREAM {
+		uuid id PK ""  
+		uuid job_run_id FK ""  
+		string storage_key  ""  
+		int last_sequence  ""  
+		datetime created_at  ""  
+		datetime updated_at  ""  
+	}
+
+	LOG_EVENT {
+		int sequence  ""  
+		string stream  ""  
+		string content  ""  
+		datetime emitted_at  ""  
+	}
+
+	ARTIFACT {
+		uuid id PK ""  
+		uuid run_id FK ""  
+		uuid job_run_id FK ""  
+		string name  ""  
+		string path  ""  
+		string storage_key  ""  
+		int size_bytes  ""  
+		string content_type  ""  
+		datetime created_at  ""  
+		datetime expires_at  ""  
+		bool deleted  ""  
+	}
+
+	ARTIFACT_RETENTION_POLICY {
+		uuid id PK ""  
+		uuid project_id FK ""  
+		int retention_days  ""  
+		int max_size_mb  ""  
+		datetime created_at  ""  
+		datetime updated_at  ""  
+	}
+
+	RUN_EVENT {
+		uuid id PK ""  
+		uuid run_id FK ""  
+		uuid job_run_id FK ""  
+		string event_type  ""  
+		string message  ""  
+		datetime created_at  ""  
+	}
+
+	USER||--o{PROJECT_MEMBER:"belongs_to"
+	PROJECT||--o{PROJECT_MEMBER:"has"
+	PROJECT||--o{API_TOKEN:"owns"
+	PROJECT||--o{WEBHOOK_CONFIG:"owns"
+	WEBHOOK_CONFIG||--o{WEBHOOK_DELIVERY:"receives"
+	PROJECT||--o{PIPELINE:"owns"
+	PIPELINE||--o{PIPELINE_JOB:"contains"
+	PIPELINE_JOB||--o{PIPELINE_STEP:"contains"
+	PIPELINE_JOB||--o{PIPELINE_JOB_DEPENDENCY:"has"
+	PIPELINE_JOB_DEPENDENCY}o--||PIPELINE_JOB:"depends_on"
+	PROJECT||--o{RUN:"has"
+	PIPELINE||--o{RUN:"instantiated_by"
+	WEBHOOK_DELIVERY||--o{RUN:"triggers"
+	USER||--o{RUN:"triggers"
+	USER||--o{RUN:"cancels"
+	RUN||--o{JOB_RUN:"contains"
+	PIPELINE_JOB||--o{JOB_RUN:"instantiated_by"
+	JOB_RUN||--o{STEP_RUN:"contains"
+	PIPELINE_STEP||--o{STEP_RUN:"instantiated_by"
+	WORKER_NODE||--o{JOB_RUN:"executes"
+	WORKER_NODE||--o{JOB_RUN_ATTEMPT:"executes"
+	JOB_RUN||--o{JOB_RUN_ATTEMPT:"has"
+	JOB_RUN||--o{JOB_LOG_STREAM:"writes"
+	JOB_RUN||--o{LOG_EVENT:"emits"
+	RUN||--o{ARTIFACT:"produces"
+	JOB_RUN||--o{ARTIFACT:"produces"
+	PROJECT||--o{ARTIFACT_RETENTION_POLICY:"defines"
+	RUN||--o{RUN_EVENT:"has"
+	JOB_RUN||--o{RUN_EVENT:"concerns"
