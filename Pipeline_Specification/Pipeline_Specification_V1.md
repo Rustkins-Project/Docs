@@ -13,6 +13,8 @@ La version 2 étend la version 1 avec des fonctionnalités nécessaires à un us
 * déclenchement API ;
 * ressources CPU/RAM par job ;
 * artifacts ;
+* jobs optionnels ;
+* steps non bloquantes avec `continue_on_error` ;
 * politique d'exécution avec `run_if`.
 
 Les fonctionnalités lourdes comme les secrets, le cache, les services/sidecars, la matrix et les conditions avancées `when` restent hors périmètre de cette version.
@@ -51,18 +53,18 @@ Les pipelines Rustkins sont stockés dans le dossier :
 .rustkins/
 ```
 
-Chaque pipeline doit respecter le format :
+Chaque pipeline doit être défini dans un fichier YAML situé sous ce
+dossier.
 
-```text
-.rustkins/<nom>.pipeline.yml
-```
+Le nom du fichier est libre. La seule contrainte de chemin est que le
+fichier soit placé sous `.rustkins/`.
 
 Exemples :
 
 ```text
-.rustkins/backend.pipeline.yml
-.rustkins/frontend.pipeline.yml
-.rustkins/release.pipeline.yml
+.rustkins/ci.yml
+.rustkins/backend.yml
+.rustkins/frontend.yml
 ```
 
 ---
@@ -88,10 +90,10 @@ vars:
   NODE_ENV: test
   RUST_LOG: info
 
+image: node:22
+
 jobs:
   build:
-    image: node:22
-
     resources:
       cpu: 1000
       memory: 2048
@@ -113,8 +115,6 @@ jobs:
     needs:
       - build
 
-    image: node:22
-
     vars:
       NODE_ENV: test
 
@@ -127,6 +127,10 @@ jobs:
     steps:
       - name: Run tests
         run: npm test
+
+      - name: Generate coverage report
+        run: npm run coverage
+        continue_on_error: true
 
   cleanup:
     needs:
@@ -151,6 +155,7 @@ Un fichier pipeline version 2 doit respecter la structure suivante :
 ```yaml
 version: integer
 name: string
+image: string
 on: object
 vars: object
 jobs: object
@@ -162,6 +167,7 @@ jobs: object
 | --------- | ------- | ----------- | ------------------------------------- |
 | `version` | integer | Oui         | Version de la spécification utilisée. |
 | `name`    | string  | Oui         | Nom lisible du pipeline.              |
+| `image`   | string  | Non         | Image Docker utilisée par défaut par les jobs. |
 | `on`      | object  | Oui         | Déclencheurs du pipeline.             |
 | `vars`    | object  | Non         | Variables globales du pipeline.       |
 | `jobs`    | object  | Oui         | Liste des jobs du pipeline.           |
@@ -415,6 +421,33 @@ jobs:
 * chaque identifiant de job doit être unique ;
 * un identifiant de job doit être stable, car il peut être référencé par `needs`.
 
+## 10.1 Jobs optionnels
+
+Un job peut être déclaré optionnel avec le champ `optional`.
+
+```yaml
+jobs:
+  audit:
+    image: node:22
+    optional: true
+
+    steps:
+      - run: npm audit
+```
+
+Un job optionnel ne fait pas échouer le pipeline lorsqu'il rencontre une
+erreur métier.
+
+Si un job optionnel échoue, Rustkins le termine en `warning`.
+
+Le pipeline peut alors finir en `warning` au lieu de `failed`.
+
+## Contraintes
+
+* `optional` est optionnel ;
+* si absent, sa valeur par défaut est `false` ;
+* doit être un booléen.
+
 ## Recommandation de nommage
 
 Utiliser uniquement :
@@ -635,8 +668,9 @@ steps:
 * obligatoire ;
 * au moins une étape doit être présente ;
 * les steps sont exécutés séquentiellement ;
-* si une step échoue, le job échoue ;
-* les steps suivantes du même job ne sont pas exécutées.
+* si une step échoue sans `continue_on_error`, le job échoue ;
+* les steps suivantes du même job ne sont pas exécutées après une erreur bloquante ;
+* si une step échoue avec `continue_on_error: true`, la step passe en `warning` et les steps suivantes continuent.
 
 ---
 
@@ -671,9 +705,35 @@ steps:
 * optionnel ;
 * chaîne non vide si présent.
 
+## 15.3 Champ `continue_on_error`
+
+Le champ `continue_on_error` permet de rendre une step non bloquante.
+
+```yaml
+steps:
+  - name: Run lint
+    run: npm run lint
+    continue_on_error: true
+
+  - name: Run tests
+    run: npm test
+```
+
+Si la commande d'une step `continue_on_error` échoue :
+
+* la StepRun passe en `warning` ;
+* l'exécution du job continue avec la step suivante ;
+* le JobRun final passe en `warning` si aucune erreur bloquante ne survient ensuite.
+
+## Contraintes
+
+* optionnel ;
+* si absent, sa valeur par défaut est `false` ;
+* doit être un booléen.
+
 ---
 
-## 15.3 Commandes multi-lignes
+## 15.4 Commandes multi-lignes
 
 Les commandes multi-lignes sont autorisées.
 
@@ -807,7 +867,7 @@ jobs:
 
 | Valeur        | Description                                                                        |
 | ------------- | ---------------------------------------------------------------------------------- |
-| `all_success` | Le job s'exécute uniquement si toutes ses dépendances ont réussi.                  |
+| `all_success` | Le job s'exécute uniquement si toutes ses dépendances sont non bloquantes (`success` ou `warning`). |
 | `always`      | Le job s'exécute dès que ses dépendances sont terminées, même si elles ont échoué. |
 | `on_failure`  | Le job s'exécute uniquement si au moins une dépendance a échoué.                   |
 
@@ -890,6 +950,13 @@ Si un job échoue :
 * les jobs dépendants avec `run_if: always` peuvent s'exécuter ;
 * les jobs dépendants avec `run_if: on_failure` peuvent s'exécuter.
 
+Si un job termine en `warning` :
+
+* il est considéré comme terminé et non bloquant ;
+* les jobs dépendants avec `run_if: all_success` peuvent s'exécuter ;
+* les jobs dépendants avec `run_if: on_failure` ne s'exécutent pas uniquement à cause de ce warning ;
+* le PipelineRun final devient `warning` si aucun job obligatoire ne termine en `failed`.
+
 Exemple :
 
 ```text
@@ -911,6 +978,24 @@ failure-report:
   result: success
 ```
 
+Exemple avec warning :
+
+```text
+audit -> warning
+
+package:
+  needs: [audit]
+  run_if: all_success
+  result: success
+
+failure-report:
+  needs: [audit]
+  run_if: on_failure
+  result: skipped
+
+pipeline result: warning
+```
+
 ---
 
 ## 19. Fonctionnalités hors périmètre version 2
@@ -927,7 +1012,6 @@ when
 conditions par branche au niveau job
 conditions par fichiers modifiés
 timeout par step
-image globale
 variables par step
 artifacts nommés
 artifacts entre pipelines
@@ -981,6 +1065,7 @@ job.image = "node:22"
 job.needs = ["build"]
 job.timeout = default_timeout
 job.run_if = all_success
+job.optional = false
 job.resources.cpu = default_cpu
 job.resources.memory = default_memory
 job.vars = merge(global_vars, job_vars)
@@ -1015,6 +1100,7 @@ PipelineDefinition {
             image: "node:22",
             needs: vec![],
             run_if: RunPolicy::AllSuccess,
+            optional: false,
             timeout_seconds: Some(600),
             resources: ResourceRequirements {
                 cpu_millis: Some(1000),
@@ -1024,7 +1110,8 @@ PipelineDefinition {
             steps: vec![
                 StepDefinition {
                     name: Some("Install dependencies"),
-                    run: "npm ci"
+                    run: "npm ci",
+                    continue_on_error: false
                 }
             ],
             artifacts: Some(ArtifactDefinition {
@@ -1043,6 +1130,8 @@ PipelineDefinition {
 version: 2
 
 name: string
+
+image: string
 
 on:
   push:
@@ -1065,6 +1154,8 @@ jobs:
 
     image: string
 
+    optional: boolean
+
     vars:
       KEY: string
 
@@ -1077,6 +1168,7 @@ jobs:
     steps:
       - name: string
         run: string
+        continue_on_error: boolean
 
     artifacts:
       paths:
@@ -1100,6 +1192,10 @@ jobs:
       "type": "string",
       "minLength": 1,
       "maxLength": 100
+    },
+    "image": {
+      "type": "string",
+      "minLength": 1
     },
     "on": {
       "type": "object",
@@ -1142,7 +1238,7 @@ jobs:
       "minProperties": 1,
       "additionalProperties": {
         "type": "object",
-        "required": ["image", "steps"],
+        "required": ["steps"],
         "properties": {
           "needs": {
             "type": "array",
@@ -1154,6 +1250,9 @@ jobs:
           "run_if": {
             "type": "string",
             "enum": ["all_success", "always", "on_failure"]
+          },
+          "optional": {
+            "type": "boolean"
           },
           "image": {
             "type": "string",
@@ -1197,6 +1296,9 @@ jobs:
                 "run": {
                   "type": "string",
                   "minLength": 1
+                },
+                "continue_on_error": {
+                  "type": "boolean"
                 }
               },
               "additionalProperties": false
@@ -1235,6 +1337,11 @@ Certaines règles doivent être validées par le moteur Rustkins :
 * les jobs référencés dans `needs` doivent exister ;
 * le graphe des dépendances ne doit contenir aucun cycle ;
 * les identifiants de jobs doivent être uniques ;
+* chaque job doit avoir une image résolue, soit par `jobs.<job_id>.image`, soit par l'image globale `image` ;
+* `optional` absent doit être normalisé à `false` ;
+* `continue_on_error` absent doit être normalisé à `false` ;
+* une step en `warning` doit rendre le job `warning` si aucune erreur bloquante ne survient ensuite ;
+* un job optionnel qui rencontre une erreur métier doit terminer en `warning`, pas en `failed` ;
 * les artifacts des jobs dans `needs` doivent être restaurés avant l'exécution du job dépendant ;
 * les variables globales et les variables de job doivent être fusionnées correctement ;
 * les ressources demandées doivent pouvoir être admises par au moins un worker ;

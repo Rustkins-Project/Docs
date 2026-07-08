@@ -24,18 +24,18 @@ Les définitions de pipelines doivent être stockées dans le répertoire :
 .rustkins/
 ```
 
-Chaque pipeline est défini dans un fichier respectant le format :
+Chaque pipeline est défini dans un fichier YAML situé sous ce
+répertoire.
 
-```text
-.rustkins/<nom>.pipeline.yml
-```
+Le nom du fichier est libre. La seule contrainte de chemin est que le
+fichier soit placé sous `.rustkins/`.
 
 Exemples :
 
 ```text
-.rustkins/backend.pipeline.yml
-.rustkins/frontend.pipeline.yml
-.rustkins/release.pipeline.yml
+.rustkins/ci.yml
+.rustkins/backend.yml
+.rustkins/frontend.yml
 ```
 
 Plusieurs pipelines peuvent coexister dans un même dépôt.
