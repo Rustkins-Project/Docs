@@ -47,7 +47,7 @@ La V0 doit rester volontairement limitée. L'objectif n'est pas encore de faire 
 
 - Création d'un projet.
 - Association d'un dépôt Git public.
-- Définition du chemin du fichier YAML, par exemple `.rustkins.yml`.
+- Définition du chemin du fichier YAML, par exemple `.rustkins/ci.yml`.
 - Déclenchement manuel d'un pipeline.
 
 #### Moteur de pipeline
