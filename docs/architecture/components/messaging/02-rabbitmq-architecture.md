@@ -1,3 +1,13 @@
+---
+id: DOC-0005
+title: "RabbitMQ Architecture (Rustkins V1)"
+type: architecture
+status: draft
+summary: "Architecture RabbitMQ V1 : échanges, files, transport des ordres de jobs, annulations, logs et publication par outbox."
+topics: [rabbitmq, messaging, outbox, worker]
+applies_to: [V1]
+---
+
 # ARCH-02 --- RabbitMQ Architecture (Rustkins V1)
 
 **Status:** Draft (Implementation Reference)

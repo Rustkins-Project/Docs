@@ -1,3 +1,13 @@
+---
+id: DOC-0008
+title: "Scheduler Architecture (Rustkins V1)"
+type: architecture
+status: draft
+summary: "Responsabilités du scheduler V1 : DAG, ressources, outbox, dispatch des jobs, retries, annulations et pannes de workers."
+topics: [scheduler, dag, outbox, retry, worker]
+applies_to: [V1]
+---
+
 # ARCH-11 --- Scheduler Architecture (Rustkins V1)
 
 **Status:** Draft (Implementation Reference)

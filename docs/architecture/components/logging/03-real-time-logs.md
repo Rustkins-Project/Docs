@@ -1,3 +1,13 @@
+---
+id: DOC-0004
+title: "Real-time Logs (Rustkins V1)"
+type: architecture
+status: draft
+summary: "Transport en temps réel des logs via RabbitMQ et SSE, avec persistance dans RustFS et reconnexion des clients."
+topics: [logging, sse, rabbitmq, rustfs]
+applies_to: [V1]
+---
+
 # ARCH-03 --- Real-time Logs (Rustkins V1)
 
 **Status:** Draft (Implementation Reference)
