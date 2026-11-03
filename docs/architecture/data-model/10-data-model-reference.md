@@ -1,3 +1,13 @@
+---
+id: DOC-0012
+title: "Data Model Reference (Rustkins V1)"
+type: architecture
+status: draft
+summary: "Sémantique et relations des entités Rustkins V1 : identité, configuration des pipelines et exécution des runs."
+topics: [data-model, postgresql, pipeline, runtime]
+applies_to: [V1]
+---
+
 # ARCH-10 --- Data Model Reference (Rustkins V1)
 
 **Status:** Draft (Implementation Reference)

@@ -43,7 +43,7 @@ Attention : **version de spécification YAML ≠ version du produit**.
 - [Connaissances et dépannage](knowledge/README.md)
 - [Procédures opérationnelles](docs/operations/README.md)
 - [Recherche exploratoire et POC](research/README.md)
-- [Gestion de projet Agile et Azure Boards](docs/project-management/README.md)
+- [Gestion de projet Agile et Azure Boards](docs/project-management/project-management.md)
 - [Organisation et contribution à la mémoire](docs/conventions/knowledge-management.md)
 
 ## Contribuer
@@ -51,5 +51,6 @@ Attention : **version de spécification YAML ≠ version du produit**.
 - [Template ADR](templates/adr.md) · [Schéma ADR](schemas/adr.schema.json)
 - [Template connaissance](templates/knowledge.md) · [Schéma connaissance](schemas/knowledge.schema.json)
 - [Template runbook](templates/runbook.md)
+- [Template de document](templates/document.md) · [Schéma documentaire](schemas/document.schema.json)
 
 Les répertoires thématiques de connaissances et d'opérations sont créés **à la demande**, sans documents fictifs.

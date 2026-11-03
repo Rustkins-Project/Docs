@@ -1,3 +1,13 @@
+---
+id: DOC-0006
+title: "Pipeline Versioning (Rustkins V1)"
+type: architecture
+status: draft
+summary: "Modèle de versions immuables des pipelines, historique des définitions et association des runs à une révision Git."
+topics: [pipeline, versioning, git, runtime]
+applies_to: [V1]
+---
+
 # ARCH-08 --- Pipeline Versioning (Rustkins V1)
 
 **Status:** Draft (Implementation Reference)

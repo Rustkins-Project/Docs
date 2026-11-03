@@ -1,3 +1,13 @@
+---
+id: DOC-0010
+title: "Artifacts (Rustkins V1)"
+type: architecture
+status: draft
+summary: "Gestion des artéfacts produits par les jobs, transfert depuis les workers, stockage RustFS et accès aux résultats."
+topics: [artifacts, rustfs, storage, worker]
+applies_to: [V1]
+---
+
 # ARCH-04 --- Artifacts (Rustkins V1)
 
 **Status:** Draft (Implementation Reference)

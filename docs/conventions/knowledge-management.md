@@ -1,3 +1,13 @@
+---
+id: DOC-0013
+title: "Gestion de la documentation et de la mémoire collective"
+type: convention
+status: approved
+summary: "Sources de vérité, classement, niveaux d'autorité, règles de revue et contribution à la mémoire collective de Rustkins."
+topics: [documentation, knowledge, governance, agents]
+applies_to: [all]
+---
+
 # Gestion de la documentation et de la mémoire collective
 
 ## 1. Sources de vérité
@@ -56,7 +66,12 @@ Les modifications structurantes des spécifications, de l'architecture et des co
 
 ## 5. Formats Markdown
 
-- Les ADR et les connaissances utilisent le frontmatter YAML documenté dans `schemas/`.
+- Les ADR et les connaissances utilisent leurs schémas respectifs dans `schemas/`.
+- Les documents Markdown de référence sous `docs/` utilisent le frontmatter YAML de `schemas/document.schema.json` et le modèle `templates/document.md`, à l'exception de **tous les fichiers `README.md`**, réservés à la navigation et sans métadonnées. `README.md` et `INDEX.md` à la racine sont également exemptés. Un document métier ou normatif (comme la gestion de projet) utilise un nom dédié (`project-management.md`) plutôt que `README.md`.
+- Les métadonnées documentaires incluent `id`, `title`, `type`, `status`, `summary`, `topics` et `applies_to`. Les champs de références et `specification_version` sont facultatifs.
+- `applies_to` décrit la version **du produit Rustkins** ; `specification_version` peut décrire la version d'un contrat YAML distinct.
+- `draft` est le statut par défaut d'un document historique sans validation explicite ; `approved` exige une validation effective selon les règles d'équipe. Le fait d'être déjà dans `main` ne prouve pas à lui seul cette validation.
+- Les identifiants `DOC-xxxx` sont uniques et stables, y compris après retrait du frontmatter d'un ancien README : **ne pas réattribuer** un identifiant déjà utilisé. Le schéma vérifie la structure du frontmatter ; l'unicité, la validité des liens et les autorisations de revue nécessitent des contrôles complémentaires.
 - Les schémas JSON s'appliquent **aux objets résultant du parsing YAML**, pas au fichier Markdown brut.
 - Le corps doit présenter des faits précis, des limites et des références vérifiables.
 - Identifiants stables : `ADR-0001`, `KNOW-0001` (exemples) ; s'assurer qu'ils n'existent pas déjà.
