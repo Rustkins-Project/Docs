@@ -15,14 +15,16 @@ Les agents ne doivent pas répliquer le backlog dans les fichiers ni transformer
 
 ## 2. Règles de classement
 
-- `versions/` : roadmap et synthèse des lots du produit.
-- `specifications/` : comportement attendu, contrats et règles.
-- `architecture/` : organisation technique, composants et modèles de données.
+Les domaines documentaires sont regroupés dans `docs/`. L'index `INDEX.md`, les décisions (`decisions/`), les connaissances (`knowledge/`), les recherches (`research/`), les modèles (`templates/`) et les schémas (`schemas/`) restent à la racine. Le `README.md` racine est le point d'entrée général.
+
+- `docs/versions/` : roadmap et synthèse des lots du produit.
+- `docs/specifications/` : comportement attendu, contrats et règles.
+- `docs/architecture/` : organisation technique, composants et modèles de données.
 - `decisions/` : décisions et arbitrages (ADR).
 - `knowledge/` : observations vérifiables, solutions et pratiques réutilisables.
-- `operations/` : procédures exécutables par étapes (runbooks).
-- `conventions/` : conventions de contribution et règles d'équipe.
-- `project-management/` : gouvernance Agile, DoD, gestion des sprints et Azure Boards.
+- `docs/operations/` : procédures exécutables par étapes (runbooks).
+- `docs/conventions/` : conventions de contribution et règles d'équipe.
+- `docs/project-management/` : gouvernance Agile, DoD, gestion des sprints et Azure Boards.
 - `research/` : études exploratoires et POC sans caractère officiel.
 
 **Ne pas dédoubler les documents par version par défaut.** Utiliser `applies_to` dans les documents de connaissance et les ADR ; conserver des spécifications versionnées lorsque le contrat diffère. La **version YAML d'un pipeline** est distincte de la **version du produit**.

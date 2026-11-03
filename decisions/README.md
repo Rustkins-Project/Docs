@@ -4,7 +4,7 @@ Une ADR formalise **une décision et ses conséquences**, pas une simple découv
 
 - Template : [adr.md](../templates/adr.md)
 - Contrat des métadonnées : [adr.schema.json](../schemas/adr.schema.json)
-- Règles complètes : [knowledge-management.md](../conventions/knowledge-management.md)
+- Règles complètes : [knowledge-management.md](../docs/conventions/knowledge-management.md)
 
 ## Gouvernance obligatoire
 
