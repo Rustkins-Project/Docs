@@ -1,3 +1,13 @@
+---
+id: DOC-0009
+title: "Security (Rustkins V1)"
+type: architecture
+status: draft
+summary: "Modèle de sécurité V1 : authentification JWT, refresh tokens, autorisations de projet, jetons API et signatures de webhooks."
+topics: [security, authentication, authorization, jwt, webhooks]
+applies_to: [V1]
+---
+
 # ARCH-05 --- Security (Rustkins V1)
 
 **Status:** Draft (Implementation Reference)

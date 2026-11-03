@@ -1,3 +1,13 @@
+---
+id: DOC-0015
+title: "Gestion de projet Agile et Azure Boards"
+type: project-management
+status: approved
+summary: "Règles Agile de Rustkins : backlog, sprints, critères d'acceptation, DoR et DoD, tests et clôture des US en Sprint Review."
+topics: [agile, azure-boards, sprint, dod, project-management]
+applies_to: [all]
+---
+
 # Rustkins — Gestion de projet Agile et utilisation d'Azure Boards
 
 > **Statut :** règles de gestion de projet Rustkins, utilisables comme référentiel pour les développeurs et les agents IA.  
