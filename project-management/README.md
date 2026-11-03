@@ -3,7 +3,7 @@
 > **Statut :** règles de gestion de projet Rustkins, utilisables comme référentiel pour les développeurs et les agents IA.  
 > **Version : 1.1 — 2026-11-03**  
 > **Périmètre :** développement de Rustkins (V0, V1, V2, V3 et versions ultérieures), gestion du backlog, des sprints et des interventions.  
-> **Emplacement cible :** `RustkinsDocs/conventions/project-management.md`.  
+> **Emplacement :** `RustkinsDocs/project-management/README.md`.  
 > **Équipe :** Timothy, Alexis et Loick.
 
 ## 1. Objectif et principes directeurs

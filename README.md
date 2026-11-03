@@ -14,7 +14,8 @@ Référentiel documentaire et mémoire collective de **Rustkins** : spécificati
 | Arbitrage technique ou architectural | [decisions/](decisions/README.md) | ADR acceptée ou proposée |
 | Observation durable et réutilisable | [knowledge/](knowledge/README.md) | Débogage, pièges, patterns |
 | Procédure reproductible | [operations/](operations/README.md) | Déploiement, maintenance, incident |
-| Règle d'équipe ou de travail | [conventions/](conventions/knowledge-management.md) | Gestion Agile, Git, qualité |
+| Gestion Agile, sprints, DoD | [project-management/](project-management/README.md) | Processus Azure Boards et suivi de projet |
+| Règle d'équipe ou de contribution | [conventions/](conventions/knowledge-management.md) | Git, qualité, mémoire collective |
 | Étude exploratoire sans décision | [research/](research/README.md) | Comparaison, POC |
 
 **Autres sources de vérité :**
@@ -32,4 +33,4 @@ Référentiel documentaire et mémoire collective de **Rustkins** : spécificati
 5. Les propositions et recherches ne sont pas des décisions officielles.
 6. Ne jamais publier de secret, jeton ou transcription privée dans le dépôt.
 
-Les fichiers existants ont été reclassés sans modifier leurs contenus. Voir [la table des déplacements](MIGRATION.md).
+Les documents historiques sont classés par nature. Utiliser [l'index](INDEX.md) pour retrouver les spécifications et références techniques.

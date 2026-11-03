@@ -21,7 +21,8 @@ Les agents ne doivent pas répliquer le backlog dans les fichiers ni transformer
 - `decisions/` : décisions et arbitrages (ADR).
 - `knowledge/` : observations vérifiables, solutions et pratiques réutilisables.
 - `operations/` : procédures exécutables par étapes (runbooks).
-- `conventions/` : règles d'équipe et processus.
+- `conventions/` : conventions de contribution et règles d'équipe.
+- `project-management/` : gouvernance Agile, DoD, gestion des sprints et Azure Boards.
 - `research/` : études exploratoires et POC sans caractère officiel.
 
 **Ne pas dédoubler les documents par version par défaut.** Utiliser `applies_to` dans les documents de connaissance et les ADR ; conserver des spécifications versionnées lorsque le contrat diffère. La **version YAML d'un pipeline** est distincte de la **version du produit**.
@@ -71,8 +72,8 @@ Les modifications structurantes des spécifications, de l'architecture et des co
 7. Préserver les références vers Azure Boards et GitHub ; éviter les journaux détaillés ou transcriptions.
 8. Ne jamais committer des secrets, credentials, données personnelles inutiles ou contenu sensible.
 
-## 7. Migration et maintenance
+## 7. Maintenance documentaire
 
-Les fichiers hérités sont déplacés sans changement de leur contenu dans la première migration de structure. Consulter `MIGRATION.md` pour les chemins. Les références relatives contenues dans les fichiers déplacés doivent être vérifiées. Les URLs externes vers les anciens chemins ne sont pas nécessairement redirigées par GitHub.
+Lors d'un déplacement ou d'une réorganisation, vérifier les liens Markdown relatifs, les images et les références croisées. Mettre à jour les liens utilisés par les scripts et autres repositories. Les anciennes URLs vers les fichiers ne sont pas nécessairement redirigées par GitHub.
 
 Ne pas créer de décisions rétrospectives sur la seule base d'un document technique, ni déclarer un ancien brouillon comme validé sans approbation.

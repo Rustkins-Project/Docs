@@ -41,7 +41,7 @@ Attention : **version de spécification YAML ≠ version du produit**.
 - [Connaissances et dépannage](knowledge/README.md)
 - [Procédures opérationnelles](operations/README.md)
 - [Recherche exploratoire et POC](research/README.md)
-- [Gestion de projet Agile et Azure Boards](conventions/project-management.md)
+- [Gestion de projet Agile et Azure Boards](project-management/README.md)
 - [Organisation et contribution à la mémoire](conventions/knowledge-management.md)
 
 ## Contribuer
@@ -49,6 +49,5 @@ Attention : **version de spécification YAML ≠ version du produit**.
 - [Template ADR](templates/adr.md) · [Schéma ADR](schemas/adr.schema.json)
 - [Template connaissance](templates/knowledge.md) · [Schéma connaissance](schemas/knowledge.schema.json)
 - [Template runbook](templates/runbook.md)
-- [Anciennes et nouvelles localisations](MIGRATION.md)
 
-Les répertoires thématiques de connaissances et d'opérations sont créés **à la demande**, sans documents fictifs. Le document isolé dans [docs/](docs/rustkins-mcp-smoke-test.md) est laissé inchangé pour éviter de supprimer ou de requalifier son historique dans cette migration.
+Les répertoires thématiques de connaissances et d'opérations sont créés **à la demande**, sans documents fictifs.
