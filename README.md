@@ -16,7 +16,7 @@ Référentiel documentaire et mémoire collective de **Rustkins** : spécificati
 | Arbitrage technique ou architectural | [decisions/](decisions/README.md) | ADR acceptée ou proposée |
 | Observation durable et réutilisable | [knowledge/](knowledge/README.md) | Débogage, pièges, patterns |
 | Procédure reproductible | [operations/](docs/operations/README.md) | Déploiement, maintenance, incident |
-| Gestion Agile, sprints, DoD | [project-management/](docs/project-management/README.md) | Processus Azure Boards et suivi de projet |
+| Gestion Agile, sprints, DoD | [project-management/](docs/project-management/project-management.md) | Processus Azure Boards et suivi de projet |
 | Règle d'équipe ou de contribution | [conventions/](docs/conventions/knowledge-management.md) | Git, qualité, mémoire collective |
 | Étude exploratoire sans décision | [research/](research/README.md) | Comparaison, POC |
 
@@ -37,4 +37,4 @@ Référentiel documentaire et mémoire collective de **Rustkins** : spécificati
 
 Les documents historiques sont classés par nature. Utiliser [l'index](INDEX.md) pour retrouver les spécifications et références techniques.
 
-Les fichiers Markdown sous `docs/` possèdent des **métadonnées YAML visibles sur GitHub** (identifiant, statut, version du produit, sujets, résumé). Leur structure est définie par [le schéma documentaire](schemas/document.schema.json) et [le template](templates/document.md). Les ADR et connaissances conservent leurs schémas dédiés.
+Les documents Markdown de référence sous `docs/` (hors fichiers `README.md`) possèdent des **métadonnées YAML visibles sur GitHub** (identifiant, statut, version du produit, sujets, résumé). Leur structure est définie par [le schéma documentaire](schemas/document.schema.json) et [le template](templates/document.md). Les `README.md` sont réservés à la navigation et ne portent aucune métadonnée. Les ADR et connaissances conservent leurs schémas dédiés.

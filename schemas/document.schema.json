@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/Rustkins-Project/RustkinsDocs/blob/main/schemas/document.schema.json",
   "title": "Rustkins document frontmatter",
-  "description": "Validation des métadonnées YAML, préalablement converties en objet JSON, pour les documents Markdown sous docs/. Ne valide ni le contenu du Markdown ni l'approbation humaine.",
+  "description": "Validation des métadonnées YAML, préalablement converties en objet JSON, pour les documents Markdown de référence sous docs/, à l'exclusion des fichiers README.md ; ne valide ni le contenu du Markdown ni l'approbation humaine.",
   "type": "object",
   "additionalProperties": false,
   "required": [

@@ -1,13 +1,3 @@
----
-id: DOC-0014
-title: "Procédures opérationnelles"
-type: operation
-status: approved
-summary: "Index et principes de rédaction des runbooks de déploiement, maintenance, dépannage et réponse à incident."
-topics: [operations, runbook, deployment, incident-response]
-applies_to: [all]
----
-
 # Procédures opérationnelles
 
 Les runbooks décrivent **comment exécuter une opération** de manière reproductible : déploiement, maintenance, dépannage en production, réponse à incident, restauration.

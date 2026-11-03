@@ -1,13 +1,3 @@
----
-id: DOC-0016
-title: "Spécifications Rustkins"
-type: specification
-status: approved
-summary: "Index des contrats et spécifications du produit, notamment les trois versions du format YAML des pipelines."
-topics: [specifications, pipeline, yaml]
-applies_to: [all]
----
-
 # Spécifications
 
 Décrivent **le comportement attendu** : règles fonctionnelles, contrats, formats et validations. Ne pas y stocker des arbitrages historiques ou un journal d'erreurs.
