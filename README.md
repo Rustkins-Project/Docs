@@ -36,3 +36,5 @@ Référentiel documentaire et mémoire collective de **Rustkins** : spécificati
 6. Ne jamais publier de secret, jeton ou transcription privée dans le dépôt.
 
 Les documents historiques sont classés par nature. Utiliser [l'index](INDEX.md) pour retrouver les spécifications et références techniques.
+
+Les fichiers Markdown sous `docs/` possèdent des **métadonnées YAML visibles sur GitHub** (identifiant, statut, version du produit, sujets, résumé). Leur structure est définie par [le schéma documentaire](schemas/document.schema.json) et [le template](templates/document.md). Les ADR et connaissances conservent leurs schémas dédiés.

@@ -1,3 +1,13 @@
+---
+id: DOC-0022
+title: "Rustkins — Roadmap fonctionnelle par versions"
+type: version
+status: draft
+summary: "Objectifs, périmètres, infrastructures et critères de validation des différentes versions du produit Rustkins."
+topics: [versions, roadmap, scope, infrastructure]
+applies_to: [all]
+---
+
 # Rustkins — Roadmap fonctionnelle par versions
 
 # Objectif
