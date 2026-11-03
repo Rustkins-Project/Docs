@@ -19,7 +19,7 @@ Décrire le problème, le périmètre, les contraintes et les objectifs.
 
 ## Décision
 
-Décrire précisément le choix envisagé. Ne pas annoncer une décision acceptée avant **approbation humaine par au moins un autre membre de l'équipe** et fusion sur \`main\`.
+Décrire précisément le choix envisagé. Ne pas annoncer une décision acceptée avant **approbation humaine par au moins un autre membre de l'équipe** et fusion sur `main`.
 
 ## Alternatives
 

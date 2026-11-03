@@ -31,7 +31,7 @@ Cette réorganisation **ne change pas le contenu** des documents existants. Les 
 
 Les liens Markdown relatifs dans les documents déplacés ont été inspectés : aucun lien local Markdown nécessitant une modification de chemin n'a été trouvé dans ces sources. Les références externes (liens directs GitHub, clones, scripts ou wiki) vers les anciens chemins doivent être mises à jour par leurs détenteurs ; GitHub ne garantit pas une redirection des URLs vers chaque ancien fichier.
 
-Le document \`docs/rustkins-mcp-smoke-test.md\` et la convention de projet existante ne sont pas modifiés dans ce chantier. Aucun contenu de type ADR ou connaissance n'est inféré rétroactivement à partir des spécifications techniques.
+Le document `docs/rustkins-mcp-smoke-test.md` et la convention de projet existante ne sont pas modifiés dans ce chantier. Aucun contenu de type ADR ou connaissance n'est inféré rétroactivement à partir des spécifications techniques.
 
 ## Pour retrouver un document
 

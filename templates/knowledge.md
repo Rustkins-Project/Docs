@@ -29,7 +29,7 @@ Détailler les étapes, commandes ou recommandations réutilisables.
 
 ## Vérification et limites
 
-Indiquer les preuves et les versions testées. Passer à \`verified\` uniquement après une vérification réelle ; sinon conserver \`candidate\`.
+Indiquer les preuves et les versions testées. Passer à `verified` uniquement après une vérification réelle ; sinon conserver `candidate`.
 
 ## Références
 

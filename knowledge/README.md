@@ -12,10 +12,10 @@ Notes techniques **durables et réutilisables** : résolutions de problèmes, pi
 
 ## Statuts
 
-- \`candidate\` : observation documentée, non encore vérifiée.
-- \`verified\` : résultat vérifié, avec reproduction ou preuve dans le document ; **la vérification n'implique pas une revue par un collègue**.
-- \`outdated\` : information devenue obsolète, conservée comme historique.
+- `candidate` : observation documentée, non encore vérifiée.
+- `verified` : résultat vérifié, avec reproduction ou preuve dans le document ; **la vérification n'implique pas une revue par un collègue**.
+- `outdated` : information devenue obsolète, conservée comme historique.
 
 ## Organisation
 
-Classer par **sujet**, pas par développeur : \`rust/\`, \`docker/\`, \`database/\`, \`messaging/\`, \`security/\`, \`patterns/\`, \`troubleshooting/\`. Créer uniquement les sous-dossiers utiles. Rechercher et enrichir une note existante avant d'en créer une nouvelle. Référencer, sans recopier, les informations de RustkinsActivity.
+Classer par **sujet**, pas par développeur : `rust/`, `docker/`, `database/`, `messaging/`, `security/`, `patterns/`, `troubleshooting/`. Créer uniquement les sous-dossiers utiles. Rechercher et enrichir une note existante avant d'en créer une nouvelle. Référencer, sans recopier, les informations de RustkinsActivity.
