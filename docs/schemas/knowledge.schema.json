@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/Rustkins-Project/RustkinsDocs/blob/main/schemas/knowledge.schema.json",
+  "$id": "https://github.com/Rustkins-Project/RustkinsDocs/blob/main/docs/schemas/knowledge.schema.json",
   "title": "Rustkins knowledge frontmatter",
   "description": "Validation du frontmatter YAML parsé en objet JSON ; pas de revue humaine requise.",
   "type": "object",

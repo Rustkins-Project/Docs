@@ -1,5 +1,7 @@
 # Index documentaire Rustkins
 
+Ce fichier est le point d'entrée de la documentation sous `docs/`. Toutes les catégories, les modèles et les schémas de métadonnées sont rassemblés dans ce dossier.
+
 Cet index permet de localiser la **documentation officielle**, les **décisions** et les **connaissances**. La source de vérité reste chaque fichier Markdown, en tenant compte de son statut et de sa version de produit.
 
 ## Versions et périmètre

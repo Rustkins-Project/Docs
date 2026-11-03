@@ -3,7 +3,7 @@
 > **Statut :** règles de gestion de projet Rustkins, utilisables comme référentiel pour les développeurs et les agents IA.  
 > **Version : 1.1 — 2026-11-03**  
 > **Périmètre :** développement de Rustkins (V0, V1, V2, V3 et versions ultérieures), gestion du backlog, des sprints et des interventions.  
-> **Emplacement :** `RustkinsDocs/project-management/README.md`.  
+> **Emplacement :** `RustkinsDocs/docs/project-management/README.md`.  
 > **Équipe :** Timothy, Alexis et Loick.
 
 ## 1. Objectif et principes directeurs
@@ -425,7 +425,7 @@ Un échange synchrone reste utile **à la demande**, par exemple pour lever une 
 2. Choisir **quelques actions concrètes, attribuées et vérifiables** pour le sprint suivant, sans créer inutilement un grand nombre de Tasks.
 3. Rédiger un **compte rendu de Sprint Retrospective** : sprint/date/participants, constats positifs, points à améliorer, décisions, actions, responsables et suivi au sprint suivant.
 
-Les deux comptes rendus sont **obligatoires pour chaque sprint** et conservés dans `RustkinsDocs`, par exemple sous `project-management/sprints/<sprint>/review.md` et `retrospective.md`. Ils peuvent être référencés dans Azure Boards et dans les rapports Discord. Les décisions collectives significatives peuvent donner lieu à une ADR séparée.
+Les deux comptes rendus sont **obligatoires pour chaque sprint** et conservés dans `RustkinsDocs`, par exemple sous `docs/project-management/sprints/<sprint>/review.md` et `retrospective.md`. Ils peuvent être référencés dans Azure Boards et dans les rapports Discord. Les décisions collectives significatives peuvent donner lieu à une ADR séparée.
 
 ### 7.7. Fin de sprint et report des US
 

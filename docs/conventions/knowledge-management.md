@@ -15,15 +15,17 @@ Les agents ne doivent pas répliquer le backlog dans les fichiers ni transformer
 
 ## 2. Règles de classement
 
-- `versions/` : roadmap et synthèse des lots du produit.
-- `specifications/` : comportement attendu, contrats et règles.
-- `architecture/` : organisation technique, composants et modèles de données.
-- `decisions/` : décisions et arbitrages (ADR).
-- `knowledge/` : observations vérifiables, solutions et pratiques réutilisables.
-- `operations/` : procédures exécutables par étapes (runbooks).
-- `conventions/` : conventions de contribution et règles d'équipe.
-- `project-management/` : gouvernance Agile, DoD, gestion des sprints et Azure Boards.
-- `research/` : études exploratoires et POC sans caractère officiel.
+Toute la documentation, y compris les modèles `docs/templates/` et les schémas `docs/schemas/`, se trouve dans le répertoire `docs/`. Le `README.md` à la racine est un point d'entrée ; `docs/INDEX.md` est l'index documentaire.
+
+- `docs/versions/` : roadmap et synthèse des lots du produit.
+- `docs/specifications/` : comportement attendu, contrats et règles.
+- `docs/architecture/` : organisation technique, composants et modèles de données.
+- `docs/decisions/` : décisions et arbitrages (ADR).
+- `docs/knowledge/` : observations vérifiables, solutions et pratiques réutilisables.
+- `docs/operations/` : procédures exécutables par étapes (runbooks).
+- `docs/conventions/` : conventions de contribution et règles d'équipe.
+- `docs/project-management/` : gouvernance Agile, DoD, gestion des sprints et Azure Boards.
+- `docs/research/` : études exploratoires et POC sans caractère officiel.
 
 **Ne pas dédoubler les documents par version par défaut.** Utiliser `applies_to` dans les documents de connaissance et les ADR ; conserver des spécifications versionnées lorsque le contrat diffère. La **version YAML d'un pipeline** est distincte de la **version du produit**.
 
@@ -40,13 +42,13 @@ Les agents ne doivent pas répliquer le backlog dans les fichiers ni transformer
 
 ### Connaissance : sans revue obligatoire
 
-Une note dans `knowledge/` peut être ajoutée ou mise à jour **sans approbation humaine préalable**, y compris par un agent autorisé. Une PR est recommandée pour l'historique et les vérifications, mais **aucune revue de pair n'est exigée**. Un agent ne doit pas prétendre avoir testé une solution s'il ne l'a pas réellement vérifiée ; en cas de doute utiliser `candidate`.
+Une note dans `docs/knowledge/` peut être ajoutée ou mise à jour **sans approbation humaine préalable**, y compris par un agent autorisé. Une PR est recommandée pour l'historique et les vérifications, mais **aucune revue de pair n'est exigée**. Un agent ne doit pas prétendre avoir testé une solution s'il ne l'a pas réellement vérifiée ; en cas de doute utiliser `candidate`.
 
 ### ADR : une revue humaine minimum
 
 Toute ADR créée, modifiée substantiellement ou remplacée passe par une **PR approuvée par au moins un autre membre humain de l'équipe** (Timothy, Alexis ou Loick ; approbateur différent de l'auteur). Les agents IA ne peuvent pas valider seuls une ADR. Le statut `accepted` n'est opposable qu'une fois le fichier sur `main`, avec approbation de cette PR. Une réponse validée sur Discord est une source, pas une publication automatique.
 
-Ces règles doivent être implémentées dans les protections GitHub de la branche ou des chemins concernés pour être imposées techniquement ; **cette PR n'applique pas de protection serveur**. Éviter une protection imposant une revue à toutes les notes `knowledge/`, contraire à la décision d'équipe.
+Ces règles doivent être implémentées dans les protections GitHub de la branche ou des chemins concernés pour être imposées techniquement ; **cette PR n'applique pas de protection serveur**. Éviter une protection imposant une revue à toutes les notes `docs/knowledge/`, contraire à la décision d'équipe.
 
 ### Autres documents
 
@@ -54,7 +56,7 @@ Les modifications structurantes des spécifications, de l'architecture et des co
 
 ## 5. Formats Markdown
 
-- Les ADR et les connaissances utilisent le frontmatter YAML documenté dans `schemas/`.
+- Les ADR et les connaissances utilisent le frontmatter YAML documenté dans `docs/schemas/`.
 - Les schémas JSON s'appliquent **aux objets résultant du parsing YAML**, pas au fichier Markdown brut.
 - Le corps doit présenter des faits précis, des limites et des références vérifiables.
 - Identifiants stables : `ADR-0001`, `KNOW-0001` (exemples) ; s'assurer qu'ils n'existent pas déjà.
@@ -66,7 +68,7 @@ Les modifications structurantes des spécifications, de l'architecture et des co
 1. Synchroniser le clone de **lecture** du dépôt avec `git pull --ff-only` en début de session et régulièrement si nécessaire ; ne pas perturber un worktree d'écriture avec des changements locaux.
 2. Avant chaque intervention importante, rechercher par **sujet + version**, en priorité dans les spécifications, les ADR acceptées et l'architecture.
 3. Lire **seulement les fichiers pertinents**, plutôt que charger toute la base de connaissances.
-4. Lorsqu'une découverte mérite une conservation durable, rechercher d'abord la note existante. Proposer son enrichissement ou une création sous `knowledge/`.
+4. Lorsqu'une découverte mérite une conservation durable, rechercher d'abord la note existante. Proposer son enrichissement ou une création sous `docs/knowledge/`.
 5. Pour un changement de conception, proposer une ADR et demander la validation appropriée ; ne pas publier une décision acceptée sans revue humaine.
 6. Pour une décision Discord, le skill récupérera la réponse via l'API du bot, préparera l'ADR et sa PR ; il ne considérera pas une réponse en base comme une ADR déjà officielle.
 7. Préserver les références vers Azure Boards et GitHub ; éviter les journaux détaillés ou transcriptions.

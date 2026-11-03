@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/Rustkins-Project/RustkinsDocs/blob/main/schemas/adr.schema.json",
+  "$id": "https://github.com/Rustkins-Project/RustkinsDocs/blob/main/docs/schemas/adr.schema.json",
   "title": "Rustkins ADR frontmatter",
   "description": "Validation du frontmatter YAML parsé en objet JSON ; ne valide pas les revues GitHub.",
   "type": "object",
