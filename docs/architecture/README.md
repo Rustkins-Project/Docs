@@ -1,6 +1,6 @@
 # Architecture Rustkins
 
-Documentation de la **conception du système**, des interactions et des modèles de données. Les raisons des choix structurants sont consignées séparément dans [les ADR](../decisions/README.md).
+Documentation de la **conception du système**, des interactions et des modèles de données. Les raisons des choix structurants sont consignées séparément dans [les ADR](../../decisions/README.md).
 
 ## Composants
 

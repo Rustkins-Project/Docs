@@ -1,10 +1,10 @@
 # RustkinsDocs
 
-Toute la documentation de Rustkins est centralisée sous [`docs/`](docs/INDEX.md). Le `README.md` à la racine sert uniquement de point d'entrée.
+La documentation du produit est regroupée dans `docs/` (architecture, conventions, opérations, gestion de projet, spécifications et versions). L'index, les décisions, les connaissances, les recherches, les modèles et les schémas restent à la racine du dépôt.
 
 Référentiel documentaire et mémoire collective de **Rustkins** : spécifications, architecture, décisions, connaissances réutilisables, procédures et conventions. Les documents Markdown restent la source de vérité : l'index facilite leur découverte mais ne remplace pas leur contenu.
 
-**[Accéder à l'index de la documentation](docs/INDEX.md)** · **[Règles de contribution et gouvernance](docs/conventions/knowledge-management.md)**
+**[Accéder à l'index de la documentation](INDEX.md)** · **[Règles de contribution et gouvernance](docs/conventions/knowledge-management.md)**
 
 ## Où ranger une information ?
 
@@ -13,12 +13,12 @@ Référentiel documentaire et mémoire collective de **Rustkins** : spécificati
 | Objectifs et périmètre d'une version | [versions/](docs/versions/README.md) | V0, V1, roadmap |
 | Comportement attendu du produit | [specifications/](docs/specifications/README.md) | Syntaxe YAML, règles API |
 | Organisation technique des composants | [architecture/](docs/architecture/README.md) | Scheduler, RabbitMQ, modèle de données |
-| Arbitrage technique ou architectural | [decisions/](docs/decisions/README.md) | ADR acceptée ou proposée |
-| Observation durable et réutilisable | [knowledge/](docs/knowledge/README.md) | Débogage, pièges, patterns |
+| Arbitrage technique ou architectural | [decisions/](decisions/README.md) | ADR acceptée ou proposée |
+| Observation durable et réutilisable | [knowledge/](knowledge/README.md) | Débogage, pièges, patterns |
 | Procédure reproductible | [operations/](docs/operations/README.md) | Déploiement, maintenance, incident |
 | Gestion Agile, sprints, DoD | [project-management/](docs/project-management/README.md) | Processus Azure Boards et suivi de projet |
 | Règle d'équipe ou de contribution | [conventions/](docs/conventions/knowledge-management.md) | Git, qualité, mémoire collective |
-| Étude exploratoire sans décision | [research/](docs/research/README.md) | Comparaison, POC |
+| Étude exploratoire sans décision | [research/](research/README.md) | Comparaison, POC |
 
 **Autres sources de vérité :**
 - Azure Boards : backlog, états, itérations et tâches.
@@ -35,4 +35,4 @@ Référentiel documentaire et mémoire collective de **Rustkins** : spécificati
 5. Les propositions et recherches ne sont pas des décisions officielles.
 6. Ne jamais publier de secret, jeton ou transcription privée dans le dépôt.
 
-Les documents historiques sont classés par nature. Utiliser [l'index](docs/INDEX.md) pour retrouver les spécifications et références techniques.
+Les documents historiques sont classés par nature. Utiliser [l'index](INDEX.md) pour retrouver les spécifications et références techniques.

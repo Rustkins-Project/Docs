@@ -8,7 +8,7 @@ Notes techniques **durables et réutilisables** : résolutions de problèmes, pi
 
 - [Template connaissance](../templates/knowledge.md)
 - [Schéma de métadonnées](../schemas/knowledge.schema.json)
-- [Conventions complètes](../conventions/knowledge-management.md)
+- [Conventions complètes](../docs/conventions/knowledge-management.md)
 
 ## Statuts
 
