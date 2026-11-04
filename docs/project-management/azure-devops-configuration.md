@@ -10,6 +10,8 @@ applies_to: [all]
 
 # Configuration Azure DevOps et références techniques
 
+[Retour au sommaire de gestion de projet](README.md)
+
 ## 1. Configuration Azure DevOps pour les futurs skills
 
 1. Confirmer le projet Azure Boards, son processus Agile et la disponibilité des work item types `Epic`, `Feature`, `User Story`, `Task`, `Bug` et `Issue` ; configurer les Bugs au niveau des US dans le Product Backlog (**Bugs as requirements**), conformément à la politique de suivi validée.
