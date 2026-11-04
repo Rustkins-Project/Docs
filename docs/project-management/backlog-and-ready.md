@@ -10,7 +10,7 @@ applies_to: [all]
 
 # Backlog, types de work items et Definition of Ready
 
-## 2. Hiérarchie du backlog
+## 1. Hiérarchie du backlog
 
 ```mermaid
 flowchart TD
@@ -33,7 +33,7 @@ flowchart TD
 
 Hiérarchie habituelle : **Epic → Feature → US → Task**. Utiliser les liens Azure `Parent / Child` ; les Tests font partie de la réalisation des Tasks et ne nécessitent pas leurs propres Tasks. Les Bugs et Issues sont traités selon les sections correspondantes.
 
-### 2.1. Epic : lot ou version de Rustkins
+### 1.1. Epic : lot ou version de Rustkins
 
 **Usage :** chaque Epic représente un lot cohérent qui doit pouvoir être achevé, testé et livré (V0, V1, V2, V3…). Les Epics **ne représentent pas les microservices** ou les domaines techniques.
 
@@ -50,7 +50,7 @@ Hiérarchie habituelle : **Epic → Feature → US → Task**. Utiliser les lien
 
 **Clôture recommandée :** toutes les Features du périmètre de livraison sont `Closed`, les critères de release sont remplis, le lot est versionné et sa livraison est attestée. Les US reportées doivent être explicitement sorties du périmètre par décision humaine ; les clôturer fictivement est interdit.
 
-### 2.2. Feature : dossier fonctionnel de regroupement
+### 1.2. Feature : dossier fonctionnel de regroupement
 
 **Usage :** regroupement lisible des US par capacité principale dans une version. Elle sert surtout à naviguer, prioriser et produire des rapports ; elle **ne doit pas devenir une mini-US** ni multiplier les estimations redondantes.
 
@@ -58,7 +58,7 @@ Exemples pour V0 : **Définition des pipelines**, **Ordonnancement DAG**, **Exé
 
 **Champs recommandés :** titre court, description fonctionnelle du regroupement, Epic parent, liens aux spécifications. **Clôture recommandée :** toutes les US nécessaires et incluses dans son périmètre sont `Closed` et le regroupement est cohérent avec la version. Ne pas la clore sur la seule base des Tasks.
 
-### 2.3. User Story : unité de valeur livrable
+### 1.3. User Story : unité de valeur livrable
 
 Une US exprime une capacité observable pour un bénéficiaire réel (utilisateur, administrateur Rustkins, mainteneur ou opérateur). Elle respecte autant que possible **INVEST** : indépendante, négociable, créatrice de valeur, estimable, suffisamment petite et testable.
 
@@ -84,7 +84,7 @@ Une US exprime une capacité observable pour un bénéficiaire réel (utilisateu
 
 Une US ne doit pas être créée uniquement parce qu'une intervention prend du temps : refactoring, maintenance ou POC peuvent relever d'une Task ou Issue. Une capacité fonctionnelle nouvelle nécessite en revanche une US et une validation humaine préalable de sa création.
 
-### 2.4. Task : action exécutable et vérifiable
+### 1.4. Task : action exécutable et vérifiable
 
 Une Task est une action concrète de développement, d'infrastructure, de documentation, d'intégration, de maintenance ou de coordination, avec **un responsable identifié et un livrable vérifiable**.
 
@@ -96,7 +96,7 @@ Une Task est une action concrète de développement, d'infrastructure, de docume
 
 Une Task indépendante reste possible pour un véritable livrable transversal, même sans US parente. Les interventions trop petites pour justifier un suivi Azure sont consignées uniquement dans `RustkinsActivity`.
 
-### 2.5. Bug : défaut de comportement
+### 1.5. Bug : défaut de comportement
 
 Un Bug décrit un comportement réel contraire à un comportement attendu, que le défaut soit fonctionnel, technique ou lié à la sécurité.
 
@@ -116,7 +116,7 @@ Un Bug décrit un comportement réel contraire à un comportement attendu, que l
 
 Cette politique de suivi des Bugs est **validée par l’équipe** et s’applique à l’ensemble du projet.
 
-### 2.6. Issue : investigation / POC / incertitude
+### 1.6. Issue : investigation / POC / incertitude
 
 Dans le processus Agile, le type `Issue` existe pour tracer des problèmes ou obstacles mais n'apparaît **pas forcément sur le backlog produit** par défaut. Rustkins l'utilise pour une investigation ou un POC qui mérite d'être suivi ; le type et sa visibilité doivent être vérifiés dans la configuration Azure Boards.
 
@@ -126,7 +126,7 @@ Dans le processus Agile, le type `Issue` existe pour tracer des problèmes ou ob
 
 ---
 
-## 4. Definition of Ready (DoR) — avant engagement d'une US
+## 2. Definition of Ready (DoR) — avant engagement d'une US
 
 Une US peut exister dans le product backlog sans remplir la DoR. **Avant de la sélectionner pour un sprint**, la revue de raffinement doit confirmer :
 

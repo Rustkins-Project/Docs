@@ -10,9 +10,9 @@ applies_to: [all]
 
 # États Azure Boards et gestion des dépendances
 
-## 3. Colonnes Azure Boards, états et dépendances
+## 1. Colonnes Azure Boards, états et dépendances
 
-### 3.1. États Azure DevOps et colonnes du Board
+### 1.1. États Azure DevOps et colonnes du Board
 
 Dans Rustkins, **un statut est un état réel du work item**, enregistré dans le champ Azure DevOps `System.State` et **représenté aussi par une colonne du Board**. Les états `Blocked` et `On Hold` seront ajoutés aux types **User Story** et **Task** dans un **processus Agile hérité**. Ils sont tous deux associés à la catégorie système **In Progress**, ce qui signifie que l'élément reste en cours et n'est pas considéré comme livré.
 
@@ -30,7 +30,7 @@ Dans Rustkins, **un statut est un état réel du work item**, enregistré dans l
 
 **Particularité Azure DevOps :** le Board des US et le **Taskboard du sprint** ne partagent pas exactement la même configuration d'affichage. L'ajout d'états personnalisés aux Tasks peut créer des colonnes sur le Taskboard ; il faut vérifier leur ordre et leur correspondance. Les skills doivent d'abord lire et modifier **`System.State`**, puis contrôler la colonne réellement affichée et corriger sa configuration si nécessaire. Une modification de `System.BoardColumn` seule ne suffit pas à matérialiser un changement d'état.
 
-### 3.2. Signification des états et colonnes
+### 1.2. Signification des états et colonnes
 
 | État / colonne | Signification et sortie |
 |---|---|
@@ -43,7 +43,7 @@ Dans Rustkins, **un statut est un état réel du work item**, enregistré dans l
 
 Pour une US non commencée, conserver l'état `New` même si une dépendance future est connue ; le lien de dépendance peut être renseigné dès cette étape. Les états `Blocked` et `On Hold` sont réservés à un travail effectivement commencé, puis interrompu.
 
-### 3.3. Cycle de vie d'une US
+### 1.3. Cycle de vie d'une US
 
 ```mermaid
 stateDiagram-v2
@@ -64,7 +64,7 @@ Ce diagramme représente **à la fois les transitions entre les états réels `S
 
 Une interruption de travail, un arrêt de l'agent ou la fin d'une conversation ne justifie pas à lui seul `Closed`, `Resolved` ni la suppression de l'US.
 
-### 3.4. Dépendances
+### 1.4. Dépendances
 
 Les liens Azure **`Predecessor` / `Successor`** représentent les dépendances ordonnées ; `Related` désigne une association sans ordre, et `Parent / Child` la hiérarchie.
 

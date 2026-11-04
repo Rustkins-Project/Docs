@@ -8,12 +8,10 @@ topics: [governance, agile, roles, backlog]
 applies_to: [all]
 ---
 
-# Rustkins — Gestion de projet Agile et utilisation d'Azure Boards
+# Principes et gouvernance de la gestion de projet
 
 > **Statut :** règles de gestion de projet Rustkins, utilisables comme référentiel pour les développeurs et les agents IA.  
-> **Version : 1.1 — 2026-11-03**  
 > **Périmètre :** développement de Rustkins (V0, V1, V2, V3 et versions ultérieures), gestion du backlog, des sprints et des interventions.  
-> **Emplacement :** `RustkinsDocs/docs/project-management/principles-and-governance.md`.  
 > **Équipe :** Timothy, Alexis et Loick.
 
 ## 1. Objectif et principes directeurs
@@ -35,7 +33,7 @@ L'équipe travaille sur son temps libre : le suivi est prioritairement **asynchr
 
 ---
 
-## 12. Gouvernance et responsabilités
+## 2. Gouvernance et responsabilités
 
 **L'équipe projet est constituée de Timothy, Alexis et Loick.** Ces trois membres sont les personnes habilitées à prendre les décisions humaines requises par le projet : création des nouvelles US, validation fonctionnelle, décisions d'architecture, dérogations exceptionnelles et validation des versions. Les agents IA proposent, documentent et vérifient ; ils ne se substituent pas à l'équipe.
 
@@ -53,7 +51,7 @@ L'équipe travaille sur son temps libre : le suivi est prioritairement **asynchr
 | Publication des décisions d'architecture | Validation humaine de l'équipe, suivie d'une trace durable dans `RustkinsDocs` |
 | Rapport régulier | Synthèse asynchrone Azure + `RustkinsActivity` + CI/GitHub, sans Daily obligatoire |
 
-**La politique de suivi des Bugs ([§ 2.5](backlog-and-ready.md)) est validée par l’équipe.** Elle rend les régressions visibles sans créer un Bug à chaque échec de test. Toutes les règles décrites ici constituent les conventions de travail retenues pour Rustkins.
+**La politique de suivi des Bugs ([§ 1.5](backlog-and-ready.md)) est validée par l’équipe.** Elle rend les régressions visibles sans créer un Bug à chaque échec de test. Les règles de gestion de projet définies dans les différents guides de ce dossier constituent les conventions de travail retenues pour Rustkins.
 
 ---
 
