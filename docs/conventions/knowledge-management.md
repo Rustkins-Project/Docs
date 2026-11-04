@@ -35,6 +35,7 @@ Les domaines documentaires sont regroupés dans `docs/`. L'index `INDEX.md`, les
 - `docs/operations/` : procédures exécutables par étapes (runbooks).
 - `docs/conventions/` : conventions de contribution et règles d'équipe.
 - `docs/project-management/` : gouvernance Agile, DoD, gestion des sprints et Azure Boards.
+  Point d'entrée : [index de gestion de projet](../project-management/README.md) ; les règles sont réparties par thème dans ce dossier.
 - `research/` : études exploratoires et POC sans caractère officiel.
 
 **Ne pas dédoubler les documents par version par défaut.** Utiliser `applies_to` dans les documents de connaissance et les ADR ; conserver des spécifications versionnées lorsque le contrat diffère. La **version YAML d'un pipeline** est distincte de la **version du produit**.

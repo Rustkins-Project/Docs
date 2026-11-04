@@ -43,7 +43,7 @@ Attention : **version de spécification YAML ≠ version du produit**.
 - [Connaissances et dépannage](knowledge/README.md)
 - [Procédures opérationnelles](docs/operations/README.md)
 - [Recherche exploratoire et POC](research/README.md)
-- [Gestion de projet Agile et Azure Boards](docs/project-management/project-management.md)
+- [Gestion de projet Agile et Azure Boards](docs/project-management/README.md)
 - [Organisation et contribution à la mémoire](docs/conventions/knowledge-management.md)
 
 ## Contribuer
