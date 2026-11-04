@@ -10,7 +10,7 @@ applies_to: [all]
 
 # Configuration Azure DevOps et références techniques
 
-## 11. Configuration Azure DevOps pour les futurs skills
+## 1. Configuration Azure DevOps pour les futurs skills
 
 1. Confirmer le projet Azure Boards, son processus Agile et la disponibilité des work item types `Epic`, `Feature`, `User Story`, `Task`, `Bug` et `Issue` ; configurer les Bugs au niveau des US dans le Product Backlog (**Bugs as requirements**), conformément à la politique de suivi validée.
 2. Dans le **processus Agile hérité**, créer les états **`Blocked` et `On Hold` sur les US et les Tasks**, tous deux en catégorie système **In Progress**. Les deux états doivent être visibles dans le champ Azure `System.State` et requêtables par les futurs skills.
@@ -28,7 +28,7 @@ applies_to: [all]
 
 ---
 
-## 13. Références techniques Azure DevOps
+## 2. Références techniques Azure DevOps
 
 - [Configurer les colonnes d'un Board Azure](https://learn.microsoft.com/en-us/azure/devops/boards/boards/add-columns?view=azure-devops) — colonnes, états et mapping.
 - [Personnaliser un Taskboard de sprint](https://learn.microsoft.com/en-us/azure/devops/boards/sprints/customize-taskboard?view=azure-devops) — colonnes spécifiques aux Tasks.
