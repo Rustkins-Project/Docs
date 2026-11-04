@@ -16,7 +16,7 @@ Référentiel documentaire et mémoire collective de **Rustkins** : spécificati
 | Arbitrage technique ou architectural | [decisions/](decisions/README.md) | ADR acceptée ou proposée |
 | Observation durable et réutilisable | [knowledge/](knowledge/README.md) | Débogage, pièges, patterns |
 | Procédure reproductible | [operations/](docs/operations/README.md) | Déploiement, maintenance, incident |
-| Gestion Agile, sprints, DoD | [project-management/](docs/project-management/project-management.md) | Processus Azure Boards et suivi de projet |
+| Gestion Agile, sprints, DoD | [project-management/](docs/project-management/README.md) | Processus Azure Boards et suivi de projet |
 | Règle d'équipe ou de contribution | [conventions/](docs/conventions/knowledge-management.md) | Git, qualité, mémoire collective |
 | Étude exploratoire sans décision | [research/](research/README.md) | Comparaison, POC |
 
