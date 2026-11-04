@@ -10,7 +10,7 @@ applies_to: [all]
 
 # Exemple de User Story V0 et indicateurs
 
-## 9. Exemple complet — US V0
+## 1. Exemple complet — US V0
 
 **Epic :** `V0 — Moteur CI local viable`  
 **Feature :** `Exécution des pipelines`  
@@ -56,7 +56,7 @@ sequenceDiagram
 
 ---
 
-## 10. Indicateurs de pilotage
+## 2. Indicateurs de pilotage
 
 Les indicateurs sont issus en priorité d'Azure Boards, des résultats CI/GitHub et des journaux `RustkinsActivity`. Ils doivent rester compréhensibles et ne pas transformer le volume des activités individuelles en mesure de productivité.
 

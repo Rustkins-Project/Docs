@@ -10,21 +10,21 @@ applies_to: [all]
 
 # Organisation des sprints et rituels Agile
 
-## 7. Gestion du Product Backlog, des Sprints et de l'Agilité
+## 1. Gestion du Product Backlog, des Sprints et de l'Agilité
 
-### 7.1. Product Backlog
+### 1.1. Product Backlog
 
 Le Product Backlog est maintenu et ordonné par **Timothy**, avec les propositions et l'expertise de **Timothy, Alexis et Loick**. Il contient les US des lots Rustkins V0 et suivants, les Bugs suivis et les investigations utiles. Les priorités tiennent compte de la valeur, des dépendances, des risques et de la capacité réelle de l'équipe.
 
 Les Epics représentent les **versions**, pas les sprints. Une US hérite du périmètre de version par son Epic parent, tandis que le champ `Iteration Path` indique le sprint où elle est engagée. Les sprints peuvent traverser plusieurs Features.
 
-### 7.2. Raffinement
+### 1.2. Raffinement
 
 L'équipe clarifie les US, vérifie leur INVEST/DoR, identifie les dépendances, les découpe en unités livrables lorsque nécessaire, estime leurs Story Points et évalue leur Business Value. **Timothy ordonne le backlog** et arbitre la sélection des US ; chaque création d'US proposée par un agent nécessite une validation humaine explicite préalable.
 
 **Éviter le surdécoupage :** backend, interface, base de données et infrastructure sont le plus souvent des Tasks d'une même US si elles concourent au même comportement observable. **Les tests ne sont pas des Tasks séparées** : ils accompagnent chaque Task de développement et conditionnent la DoD globale de l'US.
 
-### 7.3. Sprint Planning
+### 1.3. Sprint Planning
 
 1. Définir en équipe le **Sprint Goal**, simple et vérifiable.
 2. Évaluer les disponibilités réelles des trois développeurs pour la période : Rustkins est un projet personnel ; les temps libres peuvent varier d'un sprint à l'autre.
@@ -33,7 +33,7 @@ L'équipe clarifie les US, vérifie leur INVEST/DoR, identifie les dépendances,
 5. Associer les work items au bon sprint via `Iteration Path` et relire les liens parents/dépendances.
 6. Signaler les risques et convenir des actions préventives.
 
-### 7.4. Pendant le sprint
+### 1.4. Pendant le sprint
 
 - Le **Sprint Goal** reste stable ; des ajustements de Tasks peuvent être nécessaires.
 - **Timothy est responsable des modifications du Sprint Backlog en cours de sprint** : ajout/retrait d'US, changement de priorité, transfert d'un Bug ou ajustement de périmètre. Les agents proposent et justifient ; Timothy décide et en consigne la raison et l'impact.
@@ -42,7 +42,7 @@ L'équipe clarifie les US, vérifie leur INVEST/DoR, identifie les dépendances,
 - Chaque développeur et son agent actualisent Azure Boards et leurs fiches dans `RustkinsActivity` à mesure que le travail progresse ; les résultats CI et les PR fournissent les preuves techniques.
 - Les états et colonnes `Blocked` et `On Hold` rendent visibles respectivement les dépendances bloquantes et les mises en pause.
 
-### 7.5. Suivi asynchrone, sans Daily obligatoire
+### 1.5. Suivi asynchrone, sans Daily obligatoire
 
 Rustkins est développé par **trois personnes sur leur temps libre**, sans présence ni activité quotidienne garantie. Une cérémonie Daily systématique serait peu utile et risquerait de mobiliser du temps sans apporter de progrès.
 
@@ -52,7 +52,7 @@ Le bot Discord peut produire des **rapports réguliers déterministes** à parti
 
 Un échange synchrone reste utile **à la demande**, par exemple pour lever une dépendance, décider d'une architecture, résoudre un blocage ou préparer une livraison ; il ne prend pas la forme d'un Daily imposé.
 
-### 7.6. Sprint Review et Retrospective
+### 1.6. Sprint Review et Retrospective
 
 **Sprint Review — validation des fonctionnalités et clôture des US :**
 
@@ -71,7 +71,7 @@ Un échange synchrone reste utile **à la demande**, par exemple pour lever une 
 
 Les deux comptes rendus sont **obligatoires pour chaque sprint** et conservés dans `RustkinsDocs`, par exemple sous `docs/project-management/sprints/<sprint>/review.md` et `retrospective.md`. Ils peuvent être référencés dans Azure Boards et dans les rapports Discord. Les décisions collectives significatives peuvent donner lieu à une ADR séparée.
 
-### 7.7. Fin de sprint et report des US
+### 1.7. Fin de sprint et report des US
 
 - **US `Closed` pendant la Sprint Review :** considérée comme terminée et comptabilisée parmi les livraisons du sprint.
 - **US `Resolved` avant la review :** présentée pour validation ; si acceptée, passage à `Closed` **pendant la review**. Si un AC initial échoue, retour à `Active` puis report.

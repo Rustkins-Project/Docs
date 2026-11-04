@@ -10,9 +10,9 @@ applies_to: [all]
 
 # Règles des agents IA et automatisations
 
-## 8. Règles opérationnelles des agents et skills
+## 1. Règles opérationnelles des agents et skills
 
-### 8.1. Détection et création
+### 1.1. Détection et création
 
 1. Identifier si la demande relève d'une **petite activité**, d'une **Task**, d'une **US**, d'un **Bug** ou d'une **Issue**.
 2. Consulter `RustkinsDocs` de façon ciblée et synchroniser le clone de lecture si nécessaire.
@@ -23,7 +23,7 @@ applies_to: [all]
 7. **Anomalie** : créer un Bug si le défaut justifie un suivi ; rattacher le Bug à la fonctionnalité impactée.
 8. **Recherche / POC** : utiliser une Issue si le sujet demande un livrable et une priorisation ; sinon journaliser l'activité.
 
-### 8.2. Mise à jour des états et colonnes
+### 1.2. Mise à jour des états et colonnes
 
 | Action proposée par l'agent | Règle de sécurité |
 |---|---|
@@ -44,7 +44,7 @@ Pour `Blocked` et `On Hold`, les skills doivent modifier **`System.State`** vers
 
 **Aucune annonce de réussite** sans confirmation par Azure, GitHub ou Git.
 
-### 8.3. Automatisation DoD graduelle
+### 1.3. Automatisation DoD graduelle
 
 **Contrôles automatisables :** statut des Tasks enfants, présence des AC, résultats CI sur la révision cible, déploiement test, liens E2E, dépendances, état/liaison des PR `AB#...`, documentation et référence au compte rendu de review.
 

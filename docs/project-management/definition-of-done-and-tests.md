@@ -10,9 +10,9 @@ applies_to: [all]
 
 # Definition of Done, tests et preuves de validation
 
-## 5. Definition of Done (DoD) — les trois niveaux
+## 1. Definition of Done (DoD) — les trois niveaux
 
-### 5.1. Activité RustkinsActivity
+### 1.1. Activité RustkinsActivity
 
 Une activité peut être considérée achevée lorsque :
 
@@ -24,7 +24,7 @@ Une activité peut être considérée achevée lorsque :
 
 La clôture d'une conversation Codex/Claude **ne clôt pas automatiquement l'activité** : un agent peut interrompre, reprendre ou passer le relais.
 
-### 5.2. Task Azure — `Closed`
+### 1.2. Task Azure — `Closed`
 
 La Task est `Closed` si et seulement si :
 
@@ -37,17 +37,17 @@ La Task est `Closed` si et seulement si :
 
 **Les tests sont produits et exécutés pendant les Tasks de développement, sans créer de Tasks spécifiques aux tests.** Les E2E globaux de l'US ne sont pas tous exigés pour fermer chaque Task isolément, mais ils sont **obligatoires pour résoudre l'US**. Une Task ne peut pas être clôturée si sa propre implémentation est manifestement défectueuse.
 
-### 5.3. User Story — porte `Active` → `Resolved`
+### 1.3. User Story — porte `Active` → `Resolved`
 
 Cette **DoD technique et fonctionnelle est obligatoire**. Les conditions sont **cumulatives** :
 
-#### A. Fonctionnalité / acceptance criteria
+#### 1.3.1. Fonctionnalité / acceptance criteria
 
 - [ ] Tous les AC sont satisfaits et individuellement vérifiés ; l'équipe documente la preuve ou le scénario de test correspondant.
 - [ ] Les cas limites et les règles métier identifiés sont couverts.
 - [ ] Aucun Bug bloquant ou défaut connu invalidant un AC n'est ouvert.
 
-#### B. Tests : trois niveaux obligatoires
+#### 1.3.2. Tests : trois niveaux obligatoires
 
 - [ ] **Tests unitaires** : implémentés/actualisés pour le périmètre de l'US, exécutés et **réussis**.
 - [ ] **Tests d'intégration** : implémentés/actualisés pour les composants et échanges concernés (DB, API, RabbitMQ, stockage, Docker, etc.), exécutés et **réussis**.
@@ -57,14 +57,14 @@ Cette **DoD technique et fonctionnelle est obligatoire**. Les conditions sont **
 
 **Règle retenue :** les trois catégories de tests sont exigées pour chaque US, intégrées au flux normal de réalisation, **sans Tasks de mise en place des tests**. Pour les US très techniques, définir un E2E technique observable (par exemple, déclencher un pipeline puis vérifier le statut, les sorties et les logs), plutôt que d'omettre la catégorie de test. Toute impossibilité exceptionnelle doit faire l'objet d'une **dérogation explicite et humaine, documentée**, et non d'une décision unilatérale de l'agent ; tant qu'elle n'est pas approuvée, l'US ne peut pas passer à `Resolved`.
 
-#### C. Intégration, documentation, dépendances
+#### 1.3.3. Intégration, documentation, dépendances
 
 - [ ] Toutes les **Tasks enfants sont dans l'état `Closed`** (aucune `New`, `Active`, `Blocked` ou `On Hold` restante ; un retrait de périmètre nécessite une décision humaine documentée).
 - [ ] Code fusionné sur la branche de référence, revues requises obtenues, et artefact/build identifié.
 - [ ] Documentation utilisateur, technique, configuration, migration et ADR pertinentes mises à jour si le changement le nécessite.
 - [ ] Dépendances bloquantes levées ; aucun critère de fin repoussé discrètement hors périmètre.
 
-#### D. Plateforme de test
+#### 1.3.4. Plateforme de test
 
 - [ ] La **version contenant l'US est déployée sur la plateforme de test** partagée, accessible à l'équipe.
 - [ ] Commit, build, image(s) et/ou release réellement déployés sont identifiables.
@@ -74,7 +74,7 @@ Cette **DoD technique et fonctionnelle est obligatoire**. Les conditions sont **
 
 **Transition autorisée :** `Active` → `Resolved` seulement quand **A + B + C + D** sont satisfaits. L'US est alors **prête à être validée**, mais **pas encore terminée**.
 
-### 5.4. User Story — porte `Resolved` → `Closed` **pendant la Sprint Review**
+### 1.4. User Story — porte `Resolved` → `Closed` **pendant la Sprint Review**
 
 La **Sprint Review est le moment officiel de clôture des US du sprint**. Chaque US `Resolved` est présentée à l'équipe **Timothy, Alexis et Loick** sur la plateforme de test. L'acceptation est une décision **humaine et traçable de l'équipe**, et non une décision automatique de l'agent.
 
@@ -90,9 +90,9 @@ Pour passer une US à `Closed` :
 
 **En revanche, si la review démontre qu'un AC initial ou la DoD n'est pas respecté, l'US n'était pas réellement terminée :** elle retourne à `Active`, la correction est tracée, puis elle est reportée si nécessaire. Une évolution hors périmètre et un manquement à l'engagement initial ne doivent pas être confondus.
 
-Les US `Resolved` **ne deviennent `Closed` que pendant la Sprint Review**. Les US non résolues à 100 % restent ouvertes et sont traitées selon la politique de fin de sprint ([§ 7.7](sprint-process.md)).
+Les US `Resolved` **ne deviennent `Closed` que pendant la Sprint Review**. Les US non résolues à 100 % restent ouvertes et sont traitées selon la politique de fin de sprint ([§ 1.7](sprint-process.md)).
 
-### 5.5. DoD complémentaires : Bug, Issue, Feature, Epic
+### 1.5. DoD complémentaires : Bug, Issue, Feature, Epic
 
 | Type | Critères recommandés |
 |---|---|
@@ -104,9 +104,9 @@ Les US `Resolved` **ne deviennent `Closed` que pendant la Sprint Review**. Les U
 
 ---
 
-## 6. Politique de tests, preuves et validation
+## 2. Politique de tests, preuves et validation
 
-### 6.1. Niveaux de test pour Rustkins
+### 2.1. Niveaux de test pour Rustkins
 
 | Niveau | Finalité | Exemple Rustkins | Preuve attendue |
 |---|---|---|---|
@@ -116,7 +116,7 @@ Les US `Resolved` **ne deviennent `Closed` que pendant la Sprint Review**. Les U
 
 Les tests sont développés et exécutés en continu au fil des Tasks : une Task exclusivement consacrée à la mise en place des tests n'est pas créée. Un test déclaré « écrit » mais non exécuté **ne vaut pas** preuve de réussite. Les tests doivent viser la même version de référence que celle déployée en test ; une suite verte sur un autre commit ne suffit pas à elle seule.
 
-### 6.2. Traçabilité recommandée d'une US
+### 2.2. Traçabilité recommandée d'une US
 
 Dans Azure Boards, conserver au minimum :
 
@@ -136,7 +136,7 @@ Dans Azure Boards, conserver au minimum :
 
 Pour faciliter l'automatisation des vérifications, consigner ces références dans une section conventionnelle **`## Preuves de validation`** dans l'US ou dans un commentaire de validation structuré, plutôt que de multiplier immédiatement les champs Azure personnalisés.
 
-### 6.3. Cas particuliers
+### 2.3. Cas particuliers
 
 - **Tests rouges** : aucune transition vers `Resolved`, même si le développeur les estime non pertinents, sans analyse et décision explicite.
 - **Tests E2E instables** : fiabiliser ou isoler la cause ; ne pas traiter un seul run vert aléatoire comme validation robuste.
