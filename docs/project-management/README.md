@@ -12,6 +12,7 @@ Référentiel Agile de Rustkins pour l'équipe (Timothy, Alexis et Loick) et les
 | Vérifier les critères de fin d'une Task ou d'une US, les tests et les preuves | [DoD, tests et validation](definition-of-done-and-tests.md) |
 | Préparer et conduire les sprints, les reviews, les rétrospectives et les reports | [Processus des sprints](sprint-process.md) |
 | Agir sur Azure Boards depuis Codex / Claude Code | [Règles des agents et automatisations](agent-workflow.md) |
+| Comprendre le workflow RustkinsActivity et le plan des futurs skills | [Intégration du journal d'activités](activity-journal-integration.md) |
 | Retrouver un exemple d'US et les indicateurs | [Exemple et KPI](example-and-kpis.md) |
 | Configurer les outils, les intégrations et consulter les références | [Configuration Azure DevOps](azure-devops-configuration.md) |
 
