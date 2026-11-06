@@ -44,6 +44,7 @@ Attention : **version de spécification YAML ≠ version du produit**.
 - [Procédures opérationnelles](docs/operations/README.md)
 - [Recherche exploratoire et POC](research/README.md)
 - [Gestion de projet Agile et Azure Boards](docs/project-management/README.md)
+- [Workflow RustkinsActivity et plan d'intégration](docs/project-management/activity-journal-integration.md)
 - [Organisation et contribution à la mémoire](docs/conventions/knowledge-management.md)
 
 ## Contribuer
